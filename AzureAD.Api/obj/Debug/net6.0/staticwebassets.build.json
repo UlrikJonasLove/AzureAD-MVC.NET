@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "GNYPQgwRpRMaGIFZIJ5B7ilSdkO6JBfLhqEr+mrMEOc=",
+  "Source": "AzureAD.Api",
+  "BasePath": "_content/AzureAD.Api",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

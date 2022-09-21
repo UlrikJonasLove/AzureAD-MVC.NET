@@ -5,6 +5,7 @@ using Microsoft.IdentityModel.Tokens;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+// GLÖM INTE ATT TA BORT INFON
 builder.Services.AddAuthentication(options =>
 {
     options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
@@ -14,15 +15,17 @@ builder.Services.AddAuthentication(options =>
   {
       options.SignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
       options.Authority = "https://login.microsoftonline.com/[YOUR_TENANT_ID]/v2.0";
-      options.ClientId = "[YOUR CLIENT ID]";
+      options.ClientId = "[YOUR_CLIENT_ID]";
       options.ResponseType = "code";
       options.SaveTokens = true;
-      options.ClientSecret = "[YOUR_CLIENT_SECRET]";
+      options.ClientSecret = "[YOUR_CLIENT_SECRET_VALUE]"; // the value of the client secret
+      options.Scope.Add("api://[API_KEY]/AdminAccess");
       options.TokenValidationParameters = new TokenValidationParameters
       {
-          NameClaimType = "name"
+          NameClaimType = "name" //this will display the name when logged in
       };
   });
+builder.Services.AddHttpClient();
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
